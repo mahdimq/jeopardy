@@ -26,7 +26,7 @@ let categories = [];
  */
 
 async function getCategoryIds() {
-  const res = await axios.get("http://jservice.io/api/categories", { params: { count: 100 } })
+  const res = await axios.get("https://jservice.io/api/categories", { params: { count: 100 } })
   const NUM_CATEGORIES = res.data.map(val => val.id)
   return _.sampleSize(NUM_CATEGORIES, 6)
 }
@@ -43,7 +43,7 @@ async function getCategoryIds() {
  */
 
 async function getCategory(catId) {
-  const res = await axios.get("http://jservice.io/api/clues", { params: { category: catId } })
+  const res = await axios.get("https://jservice.io/api/clues", { params: { category: catId } })
   const data = res.data
   const category = {
     title: data[ 0 ].category.title,
